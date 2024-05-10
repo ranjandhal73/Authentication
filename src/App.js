@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage';
 import { AuthContext } from './store/auth-store';
 
 function App() {
-  const {isLoggedIn} = useContext(AuthContext);
+  const {isLoggedIn, token} = useContext(AuthContext);
   return (
     <Layout>
       <Switch>
@@ -23,6 +23,14 @@ function App() {
         <Route path='/profile'>
           <UserProfile />
         </Route>
+        }
+        {
+          setTimeout(() => {
+            if(token){
+                localStorage.removeItem('user');
+            }
+        }, 4000) &&
+        <Route path='/auth'> <AuthPage /> </Route>
         }
         <Route path='*'>
           <Redirect to='/' />
