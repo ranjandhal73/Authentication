@@ -4,8 +4,8 @@ import classes from './MainNavigation.module.css';
 import { AuthContext } from '../../store/auth-store';
 
 const MainNavigation = () => {
+
   const {isLoggedIn,logout, token} = useContext(AuthContext);
-  console.log(token);
   return (
     <header className={classes.header}>
       <Link to="/">
