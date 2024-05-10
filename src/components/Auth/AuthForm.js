@@ -50,6 +50,7 @@ const AuthForm = () => {
       }
     }).then((data)=>{
       alert("Login Successfully")
+      console.log(data.email);
       login(data.idToken)
     }).catch((err) =>{
       alert(err.message)
@@ -58,6 +59,7 @@ const AuthForm = () => {
     emailInputRef.current.value = '';
     passwordInputRef.current.value = '';
   }
+  
   return (
     <section className={classes.auth}>
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
